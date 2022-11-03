@@ -10,51 +10,13 @@ namespace Domain
         public int idpatient;
         public int iddoctor;
 
-        public DateTime StartRecept
-        {
-            get { return startrecept; }
-            set { startrecept = value; }
-        }
+        public DateTime StartRecept { get; set; }
 
-        public DateTime EndRecept
-        {
-            get { return endrecept; }
-            set { endrecept = value; }
-        }
+        public DateTime EndRecept { get; set; }
 
-        public int IDPatient
-        {
-            get { return idpatient; }
-        }
+        public int IDPatient { get; set; }
 
-        public int IDDoctor
-        {
-            get { return iddoctor; }
-        }
-
-        public Shedule Shedule(int ID, DateTime date)
-        {
-            Shedule shedulearr = null;
-            return shedulearr;
-        }
-
-        public void SaveRecord(int id)
-        {
-
-        }
-
-        public DateTime[] FreeDates(string specialization)
-        {
-            DateTime[] freedatearr = new DateTime[100];
-            return freedatearr;
-        }
-
-        public void ChangeShedule (int id, DateTime startwork, DateTime endwork)
-        {
-        }
-
-
-
+        public int IDDoctor { get; set; }
     }
 }
 
