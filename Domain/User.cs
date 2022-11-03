@@ -11,38 +11,13 @@ namespace Domain
         public Role role;
 
 
-        public int ID
-        {
-            get { return id; }
-        }
+        public int ID { get; set; }
 
-        public int Number
-        {
-            get { return number; }
-            set { number = value; }
-        }
+        public int Number { get; set; }
 
-        public string FullName
-        {
-            get { return fullname; }
-            set { fullname = value; }
-        }
+        public string FullName { get; set; }
 
-        public Role Role
-        {
-            get { return role; }
-            set { role = value; }
-        }
-
-        public void Reg(int id, int number, string fullname, string role)
-        {
-
-        }
-
-        public void Auth(int id, int number, string fullname, string role)
-        {
-
-        }
+        public Role Role { get; set; }
     }
 }
 

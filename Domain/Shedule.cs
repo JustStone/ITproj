@@ -8,22 +8,11 @@ namespace Domain
         public DateTime startwork;
         public DateTime endwork;
 
-        public int ID
-        {
-            get { return id; }
-        }
+        public int ID { get; set; }
 
-        public DateTime StartWork
-        {
-            get { return startwork; }
-            set { startwork = value; }
-        }
+        public DateTime StartWork { get; set; }
 
-        public DateTime EndWork
-        {
-            get { return endwork; }
-            set { endwork = value; }
-        }
+        public DateTime EndWork { get; set; }
     }
 }
 

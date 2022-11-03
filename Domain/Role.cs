@@ -6,11 +6,7 @@ namespace Domain
         public Role() { }
         public int id;
 
-        public int ID
-        {
-            get { return id; }
-
-        }
+        public int ID { get; set; }
     }
 }
 
