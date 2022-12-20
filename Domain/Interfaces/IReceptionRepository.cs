@@ -3,17 +3,14 @@ using Domain.Models;
 
 namespace Domain.Interfaces
 {
-	public interface IReceptionRepository : IBaseRepository<Reception>
-	{
-        bool CheckFreeBySpec(DateTime time, Specialization specialization);
+    public interface IReceptionRepository : IBaseRepository<Reception>
+    {
+        IEnumerable<Reception> GetReceptsByDoctor(Doctor doctor);
 
-        bool CheckFreeByDoctor(DateTime time, Doctor doctor);
+        IEnumerable<Reception> GetReceptsBySpec (Specialization spec);
 
-        IEnumerable<DateTime> GetFreeBySpec(Specialization specialization);
-
-        IEnumerable<DateTime> GetFreeByDoctor(Doctor doctor);
+        IEnumerable<DateTime> GetFreeReceptsBySpec(Specialization specialization);
 
         Reception CreateBySpec(DateTime dateTime, Specialization specialization);
     }
 }
-

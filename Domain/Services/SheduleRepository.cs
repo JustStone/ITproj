@@ -5,7 +5,7 @@ using Domain.Models;
 namespace Domain.Services
 {
     public class SheduleRepository
-	{
+    {
         private ISheduleRepository _db;
         private IDoctorRepository _doctorDB;
 
@@ -55,11 +55,5 @@ namespace Domain.Services
             return Result.Ok<IEnumerable<Shedule>>(_db.GetSheduleByDate(doctor, date));
         }
 
-
-
-
-
-
     }
 }
-
