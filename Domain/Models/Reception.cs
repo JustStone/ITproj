@@ -1,8 +1,8 @@
 ﻿using System;
 namespace Domain.Models
 {
-	public class Reception
-	{
+    public class Reception
+    {
         public int Id;
         public DateTime StartRecept;
         public DateTime EndRecept;
@@ -19,4 +19,3 @@ namespace Domain.Models
         }
     }
 }
-

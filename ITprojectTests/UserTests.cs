@@ -29,10 +29,10 @@ public class UserTests
         _db.Setup(repository => repository.IsValid(It.Is<User>(user => string.IsNullOrEmpty(user.Username))))
             .Returns(false);
 
-        var response = _userRepository.CreateUser(GetUser(""));
+        var x = _userRepository.CreateUser(GetUser(""));
 
-        Assert.False(response.Success);
-        Assert.Equal("Неподходящие входные данные", response.Error);
+        Assert.False(x.Success);
+        Assert.Equal("Неподходящие входные данные", x.Error);
     }
 
     [Fact]
@@ -44,10 +44,10 @@ public class UserTests
         _db.Setup(repository => repository.IsValid(It.IsAny<User>()))
             .Returns(true);
 
-        var response = _userRepository.CreateUser(GetUser("Jigan"));
+        var x = _userRepository.CreateUser(GetUser("Jigan"));
 
-        Assert.False(response.Success);
-        Assert.Equal("Пользователь с таким именем уже существует", response.Error);
+        Assert.False(x.Success);
+        Assert.Equal("Пользователь с таким именем уже существует", x.Error);
     }
 
     [Fact]
@@ -58,18 +58,18 @@ public class UserTests
         _db.Setup(repository => repository.IsValid(It.IsAny<User>()))
             .Returns(true);
 
-        var response = _userRepository.CreateUser(GetUser("Jigan"));
+        var x = _userRepository.CreateUser(GetUser("Jigan"));
 
-        Assert.True(response.Success);
+        Assert.True(x.Success);
     }
 
 
     [Fact]
     public void LogEmpty()
     {
-        var response = _userRepository.GetByLogin(string.Empty);
-        Assert.False(response.Success);
-        Assert.Equal("Введите логин", response.Error);
+        var x = _userRepository.GetByLogin(string.Empty);
+        Assert.False(x.Success);
+        Assert.Equal("Введите логин", x.Error);
     }
 
     [Fact]
@@ -80,9 +80,9 @@ public class UserTests
         _db.Setup(repository => repository.GetByLogin(It.Is<string>(s => s == "Jigan")))
             .Returns(GetUser("Jigan"));
 
-        var response = _userRepository.GetByLogin("Jigan");
+        var x = _userRepository.GetByLogin("Jigan");
 
-        Assert.True(response.Success);
+        Assert.True(x.Success);
     }
 
     [Fact]
@@ -91,18 +91,18 @@ public class UserTests
         _db.Setup(repository => repository.GetByLogin(It.IsAny<string>()))
             .Returns(() => null);
 
-        var response = _userRepository.GetByLogin("Jigan");
+        var x = _userRepository.GetByLogin("Jigan");
 
-        Assert.False(response.Success);
-        Assert.Equal("Пользователя с таким именем не существует", response.Error);
+        Assert.False(x.Success);
+        Assert.Equal("Пользователя с таким именем не существует", x.Error);
     }
 
     [Fact]
     public void EmptyLogOrPass()
     {
-        var response = _userRepository.CheckExist("", "");
-        Assert.False(response.Success);
-        Assert.Equal("Какое-то из полей пустое", response.Error);
+        var x = _userRepository.CheckExist("", "");
+        Assert.False(x.Success);
+        Assert.Equal("Какое-то из полей пустое", x.Error);
     }
 
     [Fact]
@@ -114,9 +114,9 @@ public class UserTests
             )
         ).Returns(true);
 
-        var response = _userRepository.CheckExist("Jigan", "88005553535");
+        var x = _userRepository.CheckExist("Jigan", "88005553535");
 
-        Assert.True(response.Success);
+        Assert.True(x.Success);
     }
 
 
