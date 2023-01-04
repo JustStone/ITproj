@@ -38,7 +38,7 @@ public class UserTests
     [Fact]
     public void UserAlreadyExists()
     {
-        _db.Setup(repository => repository.FindByLogin(It.Is<string>(s => s == "Jigan")))
+        _db.Setup(repository => repository.ExistUser(It.Is<string>(s => s == "Jigan")))
             .Returns(true);
 
         _db.Setup(repository => repository.IsValid(It.IsAny<User>()))
@@ -53,7 +53,7 @@ public class UserTests
     [Fact]
     public void SucefullCreate()
     {
-        _db.Setup(repository => repository.FindByLogin(It.IsAny<string>()))
+        _db.Setup(repository => repository.ExistUser(It.IsAny<string>()))
             .Returns(false);
         _db.Setup(repository => repository.IsValid(It.IsAny<User>()))
             .Returns(true);
@@ -75,7 +75,7 @@ public class UserTests
     [Fact]
     public void LogFound()
     {
-        _db.Setup(repository => repository.FindByLogin(It.Is<string>(s => s == "Jigan")))
+        _db.Setup(repository => repository.ExistUser(It.Is<string>(s => s == "Jigan")))
             .Returns(true);
         _db.Setup(repository => repository.GetByLogin(It.Is<string>(s => s == "Jigan")))
             .Returns(GetUser("Jigan"));
@@ -108,7 +108,7 @@ public class UserTests
     [Fact]
     public void ExistLoginAndPasswordOk()
     {
-        _db.Setup(repository => repository.IsExist(
+        _db.Setup(repository => repository.ExistUser(
                 It.Is<string>(x => x == "Jigan"),
                 It.Is<string>(y => y == "88005553535")
             )

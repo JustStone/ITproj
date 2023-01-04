@@ -16,14 +16,19 @@ namespace ITprojectTests
             _receptionRepository = new ReceptionRepository(_db.Object, _doctorDB.Object);
         }
 
+        public Doctor GetDoctor(string name = "Иван иванов")
+        {
+            return new Doctor(1, name, new Specialization(1, "Какой-то доктор"));
+        }
+
         public Specialization GetSpecialization()
         {
             return new Specialization(1, "Какой-то доктор");
         }
 
-        public Doctor GetDoctor(string name = "Иван иванов")
+        public Shedule GetShedule()
         {
-            return new Doctor(1, name, new Specialization(1, "Какой-то доктор"));
+            return new Shedule(1, 1, DateTime.Now, DateTime.Now.AddMinutes(240));
         }
 
         public Reception GetReceptionMin()
@@ -130,7 +135,7 @@ namespace ITprojectTests
         [Fact]
         public void GetFreeBySpecSucefull()
         {
-            var x = _receptionRepository.GetFreeBySpec(GetSpecialization());
+            var x = _receptionRepository.GetFreeBySpec(GetSpecialization(), GetShedule());
             Assert.True(x.Success);
         }
 

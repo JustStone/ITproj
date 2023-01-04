@@ -9,7 +9,7 @@ namespace Domain.Interfaces
 
         IEnumerable<Reception> GetReceptsBySpec (Specialization spec);
 
-        IEnumerable<DateTime> GetFreeReceptsBySpec(Specialization specialization);
+        IEnumerable<DateTime> GetFreeReceptsBySpec(Specialization specialization, Shedule shedule);
 
         Reception CreateBySpec(DateTime dateTime, Specialization specialization);
     }

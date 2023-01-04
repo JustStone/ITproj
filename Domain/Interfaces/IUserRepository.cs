@@ -6,12 +6,10 @@ namespace Domain.Interfaces;
 
 public interface IUserRepository : IBaseRepository<User>
 {
-    User GetByLogin(string login);
+    User? GetByLogin(string login);
 
-    bool IsValid(User user);
+    bool ExistUser(string login, string password);
 
-    bool IsExist(string login, string password);
-
-    bool FindByLogin(string login);
+    bool ExistUser(string login);
 }
 
