@@ -18,7 +18,7 @@ namespace Domain.Services
             if (string.IsNullOrEmpty(login))
                 return Result.Fail<User>("Введите логин");
 
-            if (!_db.FindByLogin(login))
+            if (!_db.ExistUser(login))
                 return Result.Fail<User>("Пользователя с таким именем не существует");
 
             return Result.Ok<User>(_db.GetByLogin(login));
@@ -30,7 +30,7 @@ namespace Domain.Services
             if (!_db.IsValid(user))
                 return Result.Fail<User>("Неподходящие входные данные");
 
-            if (_db.FindByLogin(user.Username))
+            if (_db.ExistUser(user.Username))
                 return Result.Fail<User>("Пользователь с таким именем уже существует");
 
             return Result.Ok<User>(user);
@@ -41,7 +41,7 @@ namespace Domain.Services
             if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(login))
                 return Result.Fail<bool>("Какое-то из полей пустое");
 
-            return Result.Ok<bool>(_db.IsExist(login, password));
+            return Result.Ok<bool>(_db.ExistUser(login, password));
         }
 
     }
