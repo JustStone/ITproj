@@ -60,7 +60,7 @@ namespace BD_.Repositories
             return true;
         }
 
-        public IEnumerable<Doctor> List()
+        public IEnumerable<Doctor?> List()
         {
             return bd_.Doctors.Select(x => x.ToDomain()).ToList();
         }

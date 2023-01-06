@@ -8,6 +8,7 @@ using BD_.Repositories;
 using Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data;
 
 namespace ITprojectTests.BD_Tests
 {
@@ -25,8 +26,33 @@ namespace ITprojectTests.BD_Tests
 
         public Specialization GetSpecialization()
         {
-            return new Specialization(77, "Какой-то доктор77");
+            return new Specialization(777, "Терапевт");
         }
+
+        public Role GetRole()
+        {
+            return new Role();
+        }
+
+        //[Fact]
+        //public void PlaygroundMethod0()
+        //{
+        //    using var context = new ApplicationContext(_optionsBuilder.Options);
+        //    context.Users.Add(new UserM
+        //    {
+        //        Username = "Putin",
+        //        Password = "expro",
+        //        Id = 1,
+        //        PhoneNumber = "+7924888",
+        //        FullName = "V V",
+        //        Role = GetRole()
+        //});
+
+        //    context.SaveChanges(); // сохранили в БД
+
+        //    Assert.True(context.Shedules.Any(u => u.DoctorId == 333)); // проверим, нашло ли в нашей бд
+
+        //}
 
         //[Fact]
         //public void PlaygroundMethod1()
@@ -34,10 +60,10 @@ namespace ITprojectTests.BD_Tests
         //    using var context = new ApplicationContext(_optionsBuilder.Options);
         //    context.Doctors.Add(new DoctorM
         //    {
-        //        Id = 66,
-        //        FullName = "Тест66",
+        //        Id = 777,
+        //        FullName = "Тест777",
         //        Specialization = GetSpecialization().ToModel()
-        //    }) ;
+        //    });
 
         //    context.SaveChanges(); // сохранили в БД
 
@@ -77,23 +103,23 @@ namespace ITprojectTests.BD_Tests
 
         //}
 
-        [Fact]
-        public void PlaygroundMethod3()
-        {
-            using var context = new ApplicationContext(_optionsBuilder.Options);
-            context.Shedules.Add(new SheduleM
-            {
-                Id = 1,
-                DoctorId = 333,
-                StartTime = new DateTime(2022, 12, 15, 15, 0, 0, 0),
-                EndTime = new DateTime(2022, 12, 15, 15, 30, 0, 0)
-            }) ; 
+        //[Fact]
+        //public void PlaygroundMethod3()
+        //{
+        //    using var context = new ApplicationContext(_optionsBuilder.Options);
+        //    context.Shedules.Add(new SheduleM
+        //    {
+        //        Id = 1,
+        //        DoctorId = 333,
+        //        StartTime = new DateTime(2022, 12, 15, 15, 0, 0, 0),
+        //        EndTime = new DateTime(2022, 12, 15, 15, 30, 0, 0)
+        //    }) ; 
 
-            context.SaveChanges(); // сохранили в БД
+        //    context.SaveChanges(); // сохранили в БД
 
-            Assert.True(context.Shedules.Any(u => u.DoctorId == 333)); // проверим, нашло ли в нашей бд
+        //    Assert.True(context.Shedules.Any(u => u.DoctorId == 333)); // проверим, нашло ли в нашей бд
 
-        }
+        //}
 
     }
 }
