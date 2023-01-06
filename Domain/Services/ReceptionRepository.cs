@@ -10,6 +10,7 @@ namespace Domain.Services
         private IReceptionRepository _db;
         private IDoctorRepository _doctorDB;
 
+
         public ReceptionRepository(IReceptionRepository db, IDoctorRepository doctorDB)
         {
             _db = db;
@@ -20,7 +21,7 @@ namespace Domain.Services
         public Result<Reception> AddToConcreteDate(Reception reception)
         {
             var doctor = _doctorDB.Get(reception.DoctorId);
-            if (!_doctorDB.Exists(doctor.Id))
+            if ((doctor != null) && !_doctorDB.Exists(doctor.Id))
                 return Result.Fail<Reception>("Такого доктора не существует");
 
             DateTime startR = reception.StartRecept;

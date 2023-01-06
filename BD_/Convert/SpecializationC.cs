@@ -6,13 +6,6 @@ namespace BD_.Convert
 {
     public static class SpecializationC
     {
-        public static Specialization? ToDomain(this SpecializationM x)
-        {
-            return new Specialization(
-                x.Id,
-                x.Name
-            );
-        }
 
         public static SpecializationM ToModel(this Specialization y)
         {
@@ -22,6 +15,18 @@ namespace BD_.Convert
                 Name = y.Name
             };
         }
+
+        public static Specialization? ToDomain(this SpecializationM x)
+        {
+            if (x == null)
+                return new Specialization(0, "stop");
+
+            return new Specialization(
+                x.Id,
+                x.Name
+            );
+        }
+
 
 
     }

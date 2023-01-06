@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BD_.Repositories
 {
-    public class ScheduleR : ISheduleRepository
+    public class SheduleR : ISheduleRepository
     {
         private readonly ApplicationContext _bd;
 
-        public ScheduleR(ApplicationContext bd)
+        public SheduleR(ApplicationContext bd)
         {
             _bd = bd;
         }
